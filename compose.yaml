@@ -1,0 +1,10 @@
+services:
+  php:
+    build: docker/php
+    image: boutique-s-php
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+    command: php -S 0.0.0.0:8000 -t public
